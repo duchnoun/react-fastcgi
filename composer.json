@@ -1,0 +1,32 @@
+{
+	"name": "adawolfa/fastcgi",
+	"description": "Asynchronous FastCGI server and client for ReactPHP.",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Adam Klvač",
+			"homepage": "https://klva.cz"
+		}
+	],
+	"require": {
+		"php": "^7.1",
+		"lisachenko/protocol-fcgi": "2.x@dev",
+		"react/socket": "^1.0",
+		"react/http": "^0.8",
+		"react/http-client": "^0.5"
+	},
+	"require-dev": {
+		"nette/tester": "^2.0"
+	},
+	"minimum-stability": "dev",
+	"autoload": {
+		"psr-4": {
+			"Adawolfa\\FastCGI\\": "src/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0-dev"
+		}
+	}
+}
