@@ -5,7 +5,7 @@ This is asynchronous FastCGI both server and client implementation for PHP, more
 ## Installing
 
 ~~~
-composer install adawolfa/fastcgi
+composer install zmrd/fastcgi
 ~~~
 
 ## Writing client
@@ -13,7 +13,7 @@ composer install adawolfa/fastcgi
 Client must be obtained using connector. This is different from HTTP client, since FastCGI isn't limited to one request and response per connection. You can (and should) send multiple requests. Note that their parallel processing is limited by the server you are connecting to (for instance, native PHP CGI doesn't support it, but handles queued requests correctly).
 
 ~~~php
-use Adawolfa\FastCGI;
+use AmK\FastCGI;
 
 $loop = React\EventLoop\Factory::create();
 $connector = new FastCGI\Connector($loop);
@@ -86,7 +86,7 @@ $client->on('begin', function(FastCGI\Client\Request $request) use($loop) {
 Writing the FastCGI server is very similar to writing its HTTP counterpart. Your handler is expected to return a HTTP response or a promise evaluating into one.
 
 ~~~php
-use Adawolfa\FastCGI;
+use AmK\FastCGI;
 
 $loop = React\EventLoop\Factory::create();
 

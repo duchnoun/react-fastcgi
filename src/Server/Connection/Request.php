@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-namespace Adawolfa\FastCGI\Server\Connection;
-use Adawolfa\FastCGI;
+namespace AmK\FastCGI\Server\Connection;
+use AmK\FastCGI;
 use Evenement\EventEmitter;
 use Lisachenko\Protocol\FCGI;
 use Psr\Http\Message\ResponseInterface;

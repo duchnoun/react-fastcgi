@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Adawolfa\FastCGI;
+namespace AmK\FastCGI;
 use Evenement\EventEmitterTrait;
 use React\Http\Io\ServerRequest;
 

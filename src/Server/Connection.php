@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Adawolfa\FastCGI\Server;
+namespace AmK\FastCGI\Server;
 use Evenement\EventEmitter;
 use Lisachenko\Protocol\FCGI;
 use React;

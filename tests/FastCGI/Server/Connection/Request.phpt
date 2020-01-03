@@ -4,7 +4,7 @@
  * TEST: Server request test.
  */
 
-use Adawolfa\FastCGI;
+use AmK\FastCGI;
 use Tester\Assert;
 use Lisachenko\Protocol\FCGI;
 use Psr\Http\Message\ResponseInterface;

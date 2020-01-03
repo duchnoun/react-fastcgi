@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-namespace Adawolfa\FastCGI\Client;
-use Adawolfa\FastCGI\Response;
+namespace AmK\FastCGI\Client;
+use AmK\FastCGI\Response;
 use Evenement\EventEmitter;
 use Lisachenko\Protocol\FCGI;
 use React;

@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Adawolfa\FastCGI;
+namespace AmK\FastCGI;
 use Evenement\EventEmitter;
 use Lisachenko\Protocol\FCGI;
 use Psr\Http\Message\ServerRequestInterface;

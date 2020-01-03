@@ -4,7 +4,7 @@
  * TEST: Client request test.
  */
 
-use Adawolfa\FastCGI;
+use AmK\FastCGI;
 use Tester\Assert;
 
 require(__DIR__ . '/../../bootstrap.php');
