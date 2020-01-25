@@ -66,7 +66,12 @@ class Request extends EventEmitter
 
 			if (($pos = strpos($this->buffer, "\r\n\r\n")) !== false) {
 
-				$response = parse_response(substr($this->buffer, 0, $pos));
+				$header = substr($this->buffer, 0, $pos);
+				if (strcasecmp(substr($header, 0, 8), 'Status: ') === 0) {
+					$header = 'HTTP/1.1 ' . substr($header, 8);
+				}
+
+				$response = parse_response($header);
 
 				$this->stream = new React\Stream\ThroughStream;
 				$this->response = new Response(

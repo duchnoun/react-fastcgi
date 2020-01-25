@@ -168,7 +168,7 @@ class Request extends EventEmitter
 	{
 		$this->emit('response', [$response]);
 
-		$headers = 'HTTP/' . $response->getProtocolVersion();
+		$headers = 'Status:';
 		$headers .= ' ' . $response->getStatusCode();
 		$headers .= ' ' . $response->getReasonPhrase();
 

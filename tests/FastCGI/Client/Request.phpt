@@ -71,7 +71,7 @@ $request->on('end', function() use(&$finished): void {
 	$finished = true;
 });
 
-$request->writeBuffer("HTTP/1.1 200 OK\r\n\r\n");
+$request->writeBuffer("Status: 200 OK\r\n\r\n");
 
 /** @var $response React\Http\Response */
 $body = $response->getBody();
