@@ -6,8 +6,6 @@ use AmK\FastCGI\Response;
 use Evenement\EventEmitter;
 use Lisachenko\Protocol\FCGI;
 use React;
-use RingCentral\Psr7\Response as HttpResponse;
-use function RingCentral\Psr7\parse_response;
 
 /**
  * Client request.
@@ -70,6 +68,7 @@ class Request extends EventEmitter
 				$lines = explode("\r\n", substr($this->buffer, 0, $pos));
 				$headers = [];
 				$status = 200;
+				$reason = 'OK';
 
 				foreach ($lines as $line) {
 
@@ -84,18 +83,20 @@ class Request extends EventEmitter
 
 					if (strcasecmp($header, 'status') !== 0) {
 						$headers[$header] = $value;
+					} elseif (preg_match('~^(\d{3}) (.*)$~', $value, $matches)) {
+						$status = (int) $matches[1];
+						$reason = $matches[2];
 					}
 
 				}
 
-				$response = new HttpResponse($status, $headers);
 				$this->stream = new React\Stream\ThroughStream;
 				$this->response = new Response(
-					$response->getStatusCode(),
-					$response->getHeaders(),
+					$status,
+					$headers,
 					$this->stream,
-					$response->getProtocolVersion(),
-					$response->getReasonPhrase()
+					'1.1',
+					$reason
 				);
 
 				$buffer = substr($this->buffer, $pos + 4);
