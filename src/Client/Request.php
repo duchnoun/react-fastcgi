@@ -6,6 +6,7 @@ use AmK\FastCGI\Response;
 use Evenement\EventEmitter;
 use Lisachenko\Protocol\FCGI;
 use React;
+use RingCentral\Psr7\Response as HttpResponse;
 use function RingCentral\Psr7\parse_response;
 
 /**
@@ -66,13 +67,28 @@ class Request extends EventEmitter
 
 			if (($pos = strpos($this->buffer, "\r\n\r\n")) !== false) {
 
-				$header = substr($this->buffer, 0, $pos);
-				if (strcasecmp(substr($header, 0, 8), 'Status: ') === 0) {
-					$header = 'HTTP/1.1 ' . substr($header, 8);
+				$lines = explode("\r\n", substr($this->buffer, 0, $pos));
+				$headers = [];
+				$status = 200;
+
+				foreach ($lines as $line) {
+
+					$p = strpos($line, ':');
+
+					if ($p === false) {
+						continue;
+					}
+
+					$header = substr($line, 0, $p);
+					$value = substr($line, $p + 2);
+
+					if (strcasecmp($header, 'status') !== 0) {
+						$headers[$header] = $value;
+					}
+
 				}
 
-				$response = parse_response($header);
-
+				$response = new HttpResponse($status, $headers);
 				$this->stream = new React\Stream\ThroughStream;
 				$this->response = new Response(
 					$response->getStatusCode(),

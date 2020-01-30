@@ -71,7 +71,7 @@ $request->on('end', function() use(&$finished): void {
 	$finished = true;
 });
 
-$request->writeBuffer("Status: 200 OK\r\n\r\n");
+$request->writeBuffer("X-Powered-By: PHP/7.2.27\r\nContent-type: text/html; charset=UTF-8\r\n\r\n");
 
 /** @var $response React\Http\Response */
 $body = $response->getBody();
