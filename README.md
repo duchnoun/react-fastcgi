@@ -5,7 +5,7 @@ This is asynchronous FastCGI both server and client implementation for PHP, more
 ## Installing
 
 ~~~
-composer install zmrd/fastcgi
+composer require duchnoun/react-fastcgi:dev-main
 ~~~
 
 ## Writing client
