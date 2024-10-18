@@ -9,16 +9,15 @@
 		}
 	],
 	"require": {
-		"php": "^7.1",
-		"lisachenko/protocol-fcgi": "2.x@dev",
-		"react/socket": "^1.0",
-		"react/http": "^0.8",
-		"react/http-client": "^0.5"
+		"php": "^7.1 || ^8",
+		"lisachenko/protocol-fcgi": "*",
+		"react/socket": "*",
+		"react/http": "*",
+		"react/http-client": "*"
 	},
 	"require-dev": {
 		"nette/tester": "^2.0"
 	},
-	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
 			"AmK\\FastCGI\\": "src/"
@@ -26,7 +25,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "2.0-dev"
+			"main": "main"
 		}
 	}
 }
