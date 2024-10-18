@@ -1,5 +1,5 @@
 {
-	"name": "duchnoun/fastcgi",
+	"name": "duchnoun/react-fastcgi",
 	"description": "Asynchronous FastCGI server and client for ReactPHP.",
 	"license": "MIT",
 	"version": "3.0",
